@@ -111,7 +111,7 @@ $username = isset($_SESSION['name']) ? $_SESSION['name'] : '';
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index.html" class="brand-link">
+    <a href="index.php" class="brand-link">
       <span class="brand-text font-weight-light"><strong>Projects Point</strong></span>
     </a>
 
@@ -134,7 +134,7 @@ $username = isset($_SESSION['name']) ? $_SESSION['name'] : '';
                with font-awesome or any other icon font library -->
 
           <li class="nav-item">
-            <a href="./index.html" class="nav-link active">
+            <a href="index.php" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard

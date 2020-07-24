@@ -94,7 +94,7 @@ switch ($type) {
       $stmt_insert_user = $conn->prepare($insert_user);
       if($stmt_insert_user->execute()) {
         $message = "User added successfully !!!";
-        header("Location:http://localhost/projects_point/admin/register.php?error=".$message);
+        header("Location:http://localhost/projects_point/admin/register.php?success=".$message);
       }else{
         $message = "Couldn't add user !!!";
         header("Location:http://localhost/projects_point/admin/register.php?error=".$message);
@@ -102,7 +102,26 @@ switch ($type) {
 
     }
     break;
-  case 'newsletter':
+  case 'update_profile':
+    // echo "<pre>";
+    // print_r($_POST); die;
+    $name         = $_POST['name'];
+    $email        = $_POST['email'];
+    $designation  = $_POST['designation'];
+    $education    = $_POST['education'];
+    $skills       = $_POST['skills'];
+
+    $update_profile = "UPDATE users SET name='$name', designation='$designation', education='$education', skills='$skills' WHERE email='$email'";
+    $stmt_update_profile = $conn->prepare($update_profile);
+    if($stmt_update_profile->execute()) {
+      $message = "Profile Updated successfully !!!";
+      header("Location:http://localhost/projects_point/admin/profile.php?success=".$message);
+    }else{
+      $message = "Couldn't update profile !!!";
+      header("Location:http://localhost/projects_point/admin/profile.php?error=".$message);
+    }
+    break;
+  case 'update_profile':
     // code...
     break;
   case 'contact':
