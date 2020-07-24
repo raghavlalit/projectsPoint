@@ -175,6 +175,6 @@
 
   <!-- ======= Footer ======= -->
   <?php
-    include('header.php');
+    include('footer.php');
   ?>
   <!-- End Footer -->

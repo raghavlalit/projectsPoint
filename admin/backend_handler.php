@@ -70,9 +70,7 @@ switch ($type) {
     break;
 
   case 'register':
-    // echo "<pre>";
-    // print_r($_POST); die;
-
+    
     $name = $_POST['name'];
     $email = $_POST['email'];
     $pass = $_POST['password'];
@@ -103,8 +101,7 @@ switch ($type) {
     }
     break;
   case 'update_profile':
-    // echo "<pre>";
-    // print_r($_POST); die;
+
     $name         = $_POST['name'];
     $email        = $_POST['email'];
     $designation  = $_POST['designation'];
@@ -121,11 +118,36 @@ switch ($type) {
       header("Location:http://localhost/projects_point/admin/profile.php?error=".$message);
     }
     break;
-  case 'update_profile':
-    // code...
+  case 'subscribe':
+    $email = $_POST['email'];
+
+    $insert_newsletter = "INSERT INTO newsletter (email) VALUES('$email')";
+    $stmt_insert_newsletter = $conn->prepare($insert_newsletter);
+    if($stmt_insert_newsletter->execute()) {
+      $message = "Thank you for subscribing";
+      header("Location:http://localhost/projects_point/index.php?success=".$message);
+    }else{
+      $message = "something went wrong !!!";
+      header("Location:http://localhost/projects_point/index.php?error=".$message);
+    }
     break;
   case 'contact':
-    // code...
+
+    $name         = $_POST['name'];
+    $email        = $_POST['email'];
+    $subject  = $_POST['subject'];
+    $message    = $_POST['message'];
+
+    $insert_contact = "INSERT INTO contact (name, email, subject, message) VALUES('$name','$email','$subject','$message')";
+    $stmt_insert_contact = $conn->prepare($insert_contact);
+    if($stmt_insert_contact->execute()) {
+      $message = "Thank you for contacting us";
+      header("Location:http://localhost/projects_point/contact.php?success=".$message);
+    }else{
+      $message = "something went wrong !!!";
+      header("Location:http://localhost/projects_point/contact.php?error=".$message);
+    }
+
     break;
 
   default:
