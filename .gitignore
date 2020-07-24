@@ -1,0 +1,4 @@
+# ignore a single file
+admin/con_pdo.php
+admin/uploads
+con_pdo.php
