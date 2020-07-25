@@ -120,13 +120,16 @@ $project_count = count($result);
                           <th style="width: 20%">
                               Project Category
                           </th>
-                          <th style="width: 20%">
+                          <th style="width: 15%">
                               Project Lead
+                          </th>
+                          <th style="width: 15%">
+                              Project URL
                           </th>
                           <th style="width: 8%" class="text-center">
                               Status
                           </th>
-                          <th style="width: 30%" class="text-center">
+                          <th style="width: 20%" class="text-center">
                             Action
                           </th>
                       </tr>
@@ -152,15 +155,14 @@ $project_count = count($result);
                           <td>
                             <a><?php echo $single_project['project_author'];?></a>
                           </td>
+                          <td>
+                            <a><?php echo $single_project['project_url_name'];?></a>
+                          </td>
                           <td class="project-state">
                               <span class="badge badge-success">Success</span>
                           </td>
                           <td class="project-actions text-right">
-                              <a class="btn btn-primary btn-sm" href="#">
-                                  <i class="fas fa-folder">
-                                  </i>
-                                  View
-                              </a>
+
                               <a class="btn btn-info btn-sm" href="editproject.php?project=<?php echo base64_encode($single_project_json); ?>">
                                   <i class="fas fa-pencil-alt">
                                   </i>

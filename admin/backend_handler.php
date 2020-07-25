@@ -24,8 +24,13 @@ switch ($type) {
     break;
   case 'upload':
         $project_category = $_POST['project_category'];
-        $project_title = $_POST['project_title'];
-        $project_author = $_POST['project_author'];
+        $project_title    = $_POST['project_title'];
+        $project_author   = $_POST['project_author'];
+        $project_url      = $_POST['project_url'];
+        $language_used    = $_POST['language_used'];
+        $database_used    = $_POST['database_used'];
+        $frontend         = $_POST['frontend'];
+        $description      = $_POST['description'];
 
         $file_name =  trim($_FILES['project']['name']);
         $file_size =  $_FILES['project']['size'];
@@ -49,7 +54,8 @@ switch ($type) {
               header("Location:http://localhost/projects_point/admin/addproject.php?".$valid."&".$message);
             }else {
                 if(move_uploaded_file($file_tmp,'uploads/'.$newFileName)) {
-                    $upload_project = "INSERT INTO projects (project_category,project_title,project_author,project_name) VALUES('$project_category','$project_title','$project_author','$newFileName')";
+                    $upload_project = "INSERT INTO projects (project_category,project_title,project_author,project_name,project_url_name,language_used,database_used,frontend,description)
+                    VALUES('$project_category','$project_title','$project_author','$newFileName','$project_url','$language_used','$database_used','$frontend','$description')";
                     $stmt_upload_project = $conn->prepare($upload_project);
                     if($stmt_upload_project->execute()) {
                       $valid = 'true';
@@ -70,7 +76,7 @@ switch ($type) {
     break;
 
   case 'register':
-    
+
     $name = $_POST['name'];
     $email = $_POST['email'];
     $pass = $_POST['password'];

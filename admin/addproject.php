@@ -45,6 +45,28 @@
                     <label for="exampleInputText">Project Author</label>
                     <input type="text" name="project_author" class="form-control" id="exampleInputText" placeholder="Project Author">
                   </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputText">Project URL Name</label>
+                    <input type="text" name="project_url" class="form-control" id="exampleInputText" placeholder="Project URL Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText">Language Used</label>
+                    <input type="text" name="language_used" class="form-control" id="exampleInputText" placeholder="Language Used">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText">Database Used</label>
+                    <input type="text" name="database_used" class="form-control" id="exampleInputText" placeholder="Database Used">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText">Frountend Languages</label>
+                    <input type="text" name="frontend" class="form-control" id="exampleInputText" placeholder="Frontend Languages">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText">Description</label>
+                    <textarea type="text" name="description" class="form-control" id="exampleInputText" placeholder="Description"></textarea>
+                  </div>
+
                   <div class="form-group">
                     <label for="exampleInputFile">Upload Project</label>
                     <div class="input-group">
