@@ -155,6 +155,47 @@ switch ($type) {
     }
 
     break;
+  case 'edit_project':
+    $project_category = $_POST['project_category'];
+    $project_title    = $_POST['project_title'];
+    $project_author   = $_POST['project_author'];
+    $project_url      = $_POST['project_url'];
+    $language_used    = $_POST['language_used'];
+    $database_used    = $_POST['database_used'];
+    $frontend         = $_POST['frontend'];
+    $description      = $_POST['description'];
+
+    $id = $_GET['edit'];
+
+    $query = $conn->prepare("SELECT * FROM projects WHERE id = '" . $id. "'");
+    $query->execute();
+    if($row = $query->fetch(PDO::FETCH_ASSOC)){
+      $project_name = $row['project_name'];
+      $file = $_FILES['project']['name'];
+      if($file!="") {
+        move_uploaded_file($_FILES['project']['tmp_name'],'/uploads/'.$file);
+      } else {
+        $file = $project_name;
+      }
+
+      $update_project = "UPDATE projects SET project_category='$project_category',project_title='$project_title',project_author='$project_author',project_url_name='$project_url',
+                          language_used='$language_used',database_used='$database_used',frontend='$frontend',description='$description',project_name='$file' WHERE id =$id";
+      // echo $update_project  ; die;
+      $stmt_update_project = $conn->prepare($update_project);
+      if($stmt_update_project->execute()){
+        $message = "Project updated successfully !!!";
+        header("Location:http://localhost/projects_point/admin/index.php?success=".$message);
+      }else{
+        $message = "something went wrong !!!";
+        header("Location:http://localhost/projects_point/admin/index.php?error=".$message);
+      }
+    }
+
+
+
+
+
+    break;
 
   default:
     // code...

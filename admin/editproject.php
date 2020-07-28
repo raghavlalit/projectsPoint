@@ -34,7 +34,7 @@ $project = json_decode(base64_decode($_GET['project']), true);
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" action="backend_handler.php" method="post" enctype="multipart/form-data">
+              <form role="form" action="backend_handler.php?edit=<?php echo $project['id'];?>" method="post" enctype="multipart/form-data">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputText">Project Category</label>
@@ -48,11 +48,33 @@ $project = json_decode(base64_decode($_GET['project']), true);
                     <label for="exampleInputText">Project Author</label>
                     <input type="text" name="project_author" value="<?php echo $project['project_author'];?>" class="form-control" id="exampleInputText" placeholder="Project Author">
                   </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputText">Project URL Name</label>
+                    <input type="text" name="project_url"  value="<?php echo $project['project_url_name'];?>" class="form-control" id="exampleInputText" placeholder="Project URL Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText">Language Used</label>
+                    <input type="text" name="language_used"  value="<?php echo $project['language_used'];?>" class="form-control" id="exampleInputText" placeholder="Language Used">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText">Database Used</label>
+                    <input type="text" name="database_used"  value="<?php echo $project['database_used'];?>" class="form-control" id="exampleInputText" placeholder="Database Used">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText">Frountend Languages</label>
+                    <input type="text" name="frontend"  value="<?php echo $project['frontend'];?>" class="form-control" id="exampleInputText" placeholder="Frontend Languages">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText">Description</label>
+                    <textarea type="text" name="description"  value="<?php echo $project['description'];?>" class="form-control" id="exampleInputText" placeholder="Description"></textarea>
+                  </div>
+
                   <div class="form-group">
                     <label for="exampleInputFile">Upload Project</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" value="<?php echo $project['project_name'];?>" name="project" id="InputFile">
+                        <input type="file" class="custom-file-input" value="<?php echo $project['project_name'];?>" name="project" id="image">
                         <label class="custom-file-label" for="InputFile">Choose file</label>
                       </div>
                     </div>
@@ -61,7 +83,7 @@ $project = json_decode(base64_decode($_GET['project']), true);
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" name="type" value="upload" class="btn btn-primary">Update</button>
+                  <button type="submit" name="type" value="edit_project" class="btn btn-primary">Update</button>
                 </div>
               </form>
             </div>
