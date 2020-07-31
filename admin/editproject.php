@@ -1,5 +1,9 @@
 <?php
 include('header.php');
+$projects_category = "SELECT * FROM project_categories";
+$query = $conn->prepare($projects_category);
+$query->execute();
+$projects = $query->fetchAll(PDO::FETCH_ASSOC);
 
 $project = json_decode(base64_decode($_GET['project']), true);
 

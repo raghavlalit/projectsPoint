@@ -3,8 +3,8 @@
 
   $project_id = $_GET['id'];
 
-  $php_projects = "SELECT * FROM projects WHERE id='$project_id'";
-  $query = $conn->prepare($php_projects);
+  $projects = "SELECT * FROM projects WHERE id='$project_id'";
+  $query = $conn->prepare($projects);
   $query->execute();
   $project = $query->fetch(PDO::FETCH_ASSOC);
 ?>
@@ -26,24 +26,33 @@
     </div>
   </section><!-- End Breadcrumbs -->
   <!-- ======= Services Section ======= -->
-  <section id="services" class="services">
+  <section id="pricing" class="pricing">
     <div class="container">
 
       <div class="row">
         <div class="col-lg-12">
-          <h1>Project - <?php echo $project['project_title']; ?></h1>
-          <h3>Category - <?php echo $project['project_category']; ?></h3>
-          <p>Language Used - <?php echo $project['language_used']; ?></p>
-          <p>Frontend Languages - <?php echo $project['frontend']; ?></p>
-          <p>Database Used - <?php echo $project['database_used']; ?></p>
-          <p>Description - <?php echo $project['description']; ?> </p>
-          <p>Download Project - <a href="localhost/projects_point/uploads/<?php echo $project['project_name']; ?>"><?php echo $project['project_title']; ?></a> </p>
-          <h3>How to run the project:-</h3>
-          <p><strong>URL - </strong>http://localhost/<?php echo $project['project_url_name']; ?></br>
-            <strong>admin username - </strong>admin</br>
-            <strong>admin password - </strong>admin@123</br>
-            download project, upload database in phpmyadmin and run your project
-          </p>
+          <div class="box">
+            <h4>Project - <?php echo $project['project_title']; ?></h4>
+            <ul>
+              <li>Category - <?php echo $project['project_category']; ?></li>
+              <li>Language Used - <?php echo $project['language_used']; ?></li>
+              <li>Frontend Used - <?php echo $project['frontend']; ?></li>
+              <li>Database Used - <?php echo $project['database_used']; ?></li>
+              <li>Description - <?php echo $project['description']; ?></li>
+            </ul>
+
+            <h4>How to setup:-</h4>
+            <ul>
+              <li><strong>URL - </strong>http://localhost/<?php echo $project['project_url_name']; ?></li>
+              <li><strong>admin username - </strong>admin</li>
+              <li><strong>admin password - </strong>admin@123</li>
+              <li>download project, upload database in phpmyadmin and run your project using above URL</li>
+            </ul>
+            <div class="btn-wrap">
+              <a href="localhost/projects_point/uploads/<?php echo $project['project_name']; ?>" class="btn-buy">Download Now</a>
+            </div>
+          </div>
+
         </div>
       </div>
 

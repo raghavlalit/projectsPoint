@@ -1,4 +1,13 @@
-<?php include('header.php');?>
+<?php
+include('header.php');
+
+$projects_category = "SELECT * FROM project_categories";
+$query = $conn->prepare($projects_category);
+$query->execute();
+$projects = $query->fetchAll(PDO::FETCH_ASSOC);
+// echo "<pre>";
+// print_r($projects); die;
+?>
 
 
 <!-- Content Wrapper. Contains page content -->
@@ -34,8 +43,13 @@
               <form role="form" action="backend_handler.php" method="post" enctype="multipart/form-data">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputText">Project Category</label>
-                    <input type="text" name="project_category" class="form-control" id="exampleInputText" placeholder="Project Category">
+                    <label>Project Category</label>
+                    <select class="form-control" name="project_category" placeholder="Project Category">
+                      <option>Select Category</option>
+                      <?php foreach ($projects as $key => $project_category) {
+                        ?><option><?php echo $project_category['category']; ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputText">Project Title</label>
