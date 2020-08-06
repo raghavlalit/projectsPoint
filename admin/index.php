@@ -25,7 +25,7 @@ $project_count = count($result);
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item active">Dashboard</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -168,7 +168,7 @@ $project_count = count($result);
                                   </i>
                                   Edit
                               </a>
-                              <a class="btn btn-danger btn-sm" href="#">
+                              <a class="btn btn-danger btn-sm" href="deleteproject.php?delete_project=<?php echo $single_project['id'];?>">
                                   <i class="fas fa-trash">
                                   </i>
                                   Delete
