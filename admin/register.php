@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['user_email'])){
+if(isset($_SESSION['projects_point'])){
   header("Location:http://localhost/projects_point/admin/index.php");
 }
  ?>

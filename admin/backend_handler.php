@@ -13,8 +13,8 @@ switch ($type) {
     $query->execute();
     if($row = $query->fetch(PDO::FETCH_ASSOC)){
       $password = $row['password'];
-      $_SESSION['user_email'] = $row['email'];
-      $_SESSION['name'] = $row['name'];
+      $_SESSION['projects_point']['user_email'] = $row['email'];
+      $_SESSION['projects_point']['name'] = $row['name'];
       header("Location:http://localhost/projects_point/admin/index.php");
 
     }else{

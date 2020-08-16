@@ -1,10 +1,10 @@
 <?php
 include('con_pdo.php');
 session_start();
-// print_r($_SESSION); die;
+// print_r($_SESSION['projects_point']); die;
 
-$email = isset($_SESSION['user_email']) ? $_SESSION['user_email'] : '';
-$username = isset($_SESSION['name']) ? $_SESSION['name'] : '';
+$email = isset($_SESSION['projects_point']['user_email']) ? $_SESSION['projects_point']['user_email'] : '';
+$username = isset($_SESSION['projects_point']['name']) ? $_SESSION['projects_point']['name'] : '';
  ?>
 
 <!DOCTYPE html>
@@ -63,7 +63,7 @@ $username = isset($_SESSION['name']) ? $_SESSION['name'] : '';
 
       </nav><!-- .nav-menu -->
       <div class="ml-auto">
-							<?php if (!isset($_SESSION['user_email'])) { ?>
+							<?php if (!isset($_SESSION['projects_point']['user_email'])) { ?>
                 <a href="admin/login.php">Admin Login</a>
 							<?php } else { ?>
                 <a href="admin/logout.php"><?php echo "(".$username.")logout" ?></a>

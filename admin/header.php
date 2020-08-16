@@ -2,12 +2,12 @@
 session_start();
 include('con_pdo.php');
 
-if(!isset($_SESSION['name'])){
+if(!isset($_SESSION['projects_point'])){
   header("Location:http://localhost/projects_point/index.php");
 }
 
-$email = isset($_SESSION['user_email']) ? $_SESSION['user_email'] : '';
-$username = isset($_SESSION['name']) ? $_SESSION['name'] : '';
+$email = isset($_SESSION['projects_point']['user_email']) ? $_SESSION['projects_point']['user_email'] : '';
+$username = isset($_SESSION['projects_point']['name']) ? $_SESSION['projects_point']['name'] : '';
 
 ?>
 <!DOCTYPE html>
