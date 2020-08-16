@@ -2,7 +2,11 @@
 include('header.php');
 // include('con_pdo.php');
 
-
+$users  = "SELECT * FROM users";
+$user_query = $conn->prepare($users);
+$user_query->execute();
+$all_users = $user_query->fetchAll(PDO::FETCH_ASSOC);
+$user_count = count($all_users);
 
 $sql  = "SELECT * FROM projects";
 $query = $conn->prepare($sql);
@@ -72,14 +76,14 @@ $project_count = count($result);
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3><?php echo $user_count; ?></h3>
 
                 <p>User Registrations</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="adduser.php" class="small-box-footer">Add New <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -88,7 +92,6 @@ $project_count = count($result);
             <div class="small-box bg-danger">
               <div class="inner">
                 <h3>65</h3>
-
                 <p>Unique Visitors</p>
               </div>
               <div class="icon">
@@ -102,6 +105,42 @@ $project_count = count($result);
         <!-- /.row -->
         <!-- Main content -->
         <section class="content">
+        <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4 class="card-title">Filter Users</h4>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                   <!-- form start -->
+                    <form role="form" action="backend_handler.php" method="post" enctype="multipart/form-data">
+                      <div class="card-body row">
+                        <div class="form-group col-4">
+                          <input type="text" name="project_title" class="form-control" id="exampleInputText" placeholder="Project Title">
+                        </div>
+                        <div class="form-group col-4">
+                          <select type="text" name="project_type" class="form-control" id="exampleInputText">
+                            <option>Select Project Type</option>
+                            <option>php</option>
+                            <option>python</option>
+                            <option>student</option>
+                            <option>misc</option>
+                          </select>
+                        </div>
+                        <div class="form-group col-3">
+                          <button type="submit" name="type" value="filter_users" class="btn btn-primary btn-block">Filter</button>
+                        </div>
+
+                      </div>
+                      <!-- /.card-body -->
+                    </form>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+              </div>
+            </div>
           <!-- Default box -->
           <div class="card">
             <div class="card-header">
@@ -159,7 +198,7 @@ $project_count = count($result);
                             <a><?php echo $single_project['project_url_name'];?></a>
                           </td>
                           <td class="project-state">
-                              <span class="badge badge-success">Success</span>
+                              <span class="badge badge-success">Active</span>
                           </td>
                           <td class="project-actions text-right">
 
@@ -168,7 +207,7 @@ $project_count = count($result);
                                   </i>
                                   Edit
                               </a>
-                              <a class="btn btn-danger btn-sm" href="deleteproject.php?delete_project=<?php echo $single_project['id'];?>">
+                              <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete_project" href="#">
                                   <i class="fas fa-trash">
                                   </i>
                                   Delete
@@ -181,6 +220,26 @@ $project_count = count($result);
               </table>
             </div>
             <!-- /.card-body -->
+            <!-- Modal -->
+            <div class="modal fade" id="delete_project" tabindex="-1" role="dialog" aria-labelledby="delete_projectLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="delete_projectLabel">Delete Project</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <h3>Do you want to delete this project ?</h>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger"><a href="deleteproject.php?delete_project=<?php echo $single_project['id'];?>" class="text-white">Delete</a></button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <!-- /.card -->
 

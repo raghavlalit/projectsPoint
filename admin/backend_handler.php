@@ -191,10 +191,38 @@ switch ($type) {
       }
     }
 
+    break;
+  case 'add_user':
 
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $user_role = $_POST['user_role'];
+    $pass = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
+    if($pass!=$confirm_password){
+      $message = 'Password and confirm password are not same';
+      header("Location:http://localhost/projects_point/admin/register.php?error=".$message);
+    }
 
+    $query = $conn->prepare("SELECT id FROM users WHERE email = '" . $email. "'");
+    $query->execute();
+    if($row = $query->fetch(PDO::FETCH_ASSOC)){
+      $message = "User already exist !!!";
+      header("Location:http://localhost/projects_point/admin/index.php?error=".$message);
 
+    }else{
 
+      $insert_user = "INSERT INTO users (name, email, password, user_role) VALUES('$name','$email','$pass', '$user_role')";
+      $stmt_insert_user = $conn->prepare($insert_user);
+      if($stmt_insert_user->execute()) {
+        $message = "User added successfully !!!";
+        header("Location:http://localhost/projects_point/admin/register.php?success=".$message);
+      }else{
+        $message = "Couldn't add user !!!";
+        header("Location:http://localhost/projects_point/admin/register.php?error=".$message);
+      }
+
+    }
     break;
 
   default:

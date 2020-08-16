@@ -38,6 +38,20 @@ $username = isset($_SESSION['projects_point']['name']) ? $_SESSION['projects_poi
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <style media="screen">
+    .blue{
+      color:blue;
+    }
+    .yellow{
+      color: yellow;
+    }
+    .green{
+      color: green;
+    }
+    .red{
+      color: red;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -134,10 +148,34 @@ $username = isset($_SESSION['projects_point']['name']) ? $_SESSION['projects_poi
                with font-awesome or any other icon font library -->
 
           <li class="nav-item">
-            <a href="index.php" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <a href="index.php" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt blue"></i>
               <p>
                 Dashboard
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="profile.php" class="nav-link">
+              <i class="nav-icon fas fa-user yellow"></i>
+              <p>
+                Profile
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="addproject.php" class="nav-link">
+              <i class="nav-icon fas fa-plus-square green"></i>
+              <p>
+                Add New Project
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="logout.php" class="nav-link">
+              <i class="nav-icon fas fa-power-off red"></i>
+              <p>
+                Logout
               </p>
             </a>
           </li>
