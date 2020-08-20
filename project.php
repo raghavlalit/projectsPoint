@@ -30,7 +30,7 @@
     <div class="container">
 
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-9">
           <div class="box">
             <h4>Project - <?php echo $project['project_title']; ?></h4>
             <ul>
@@ -44,15 +44,19 @@
             <h4>How to setup:-</h4>
             <ul>
               <li><strong>URL - </strong>http://localhost/<?php echo $project['project_url_name']; ?></li>
-              <li><strong>admin username - </strong>admin</li>
+              <li><strong>admin username - </strong>admin@123.com</li>
               <li><strong>admin password - </strong>admin@123</li>
               <li>download project, upload database in phpmyadmin and run your project using above URL</li>
             </ul>
             <div class="btn-wrap">
               <a href="localhost/projects_point/uploads/<?php echo $project['project_name']; ?>" class="btn-buy">Download Now</a>
+              <a href="#" class="btn-buy">View Demo</a>
             </div>
           </div>
 
+        </div>
+        <div class="col-lg-3">
+          
         </div>
       </div>
 

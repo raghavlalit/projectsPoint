@@ -66,7 +66,7 @@
                 <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                 <div class="validate"></div>
               </div>
-              <div class="text-center"><button class="btn-danger" type="submit" name="type" value="contact" >Send Message</button></div>
+              <div class="text-center"><button class=" btn btn-danger" type="submit" name="type" value="contact" >Send Message</button></div>
             </form>
           </div>
         </div>

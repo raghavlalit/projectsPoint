@@ -81,9 +81,8 @@ $row = $query->fetch(PDO::FETCH_ASSOC);
             <div class="card">
               <div class="card-header p-2 d-flex">
                 <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Settings</a></li>
+                  <h3 class="nav-item">Settings</h3>
                 </ul>
-                <a class="ml-auto" href="register.php">Add User</a>
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content">
