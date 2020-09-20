@@ -44,10 +44,14 @@ $username = isset($_SESSION['projects_point']['name']) ? $_SESSION['projects_poi
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
-
-      <h1 class="logo"><a href="index.php">Projects Point</a></h1>
+      <div class="d-flex">
+        <a href="index.php" class="logo">
+          <img src="assets/img/projects_point_logo.png" alt="Projects Point" class="img-fluid">
+          <!-- <h1 class="logo">Projects Point</h1> -->
+        </a>
+      </div>
+     
       <!-- Uncomment below if you prefer to use an image logo -->
-       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
 
       <nav class="nav-menu d-none d-lg-block ml-auto">
 
@@ -56,7 +60,6 @@ $username = isset($_SESSION['projects_point']['name']) ? $_SESSION['projects_poi
           <li><a href="about.php">About Us</a></li>
           <li><a href="services.php">Services</a></li>
           <li><a href="allprojects.php">Projects</a></li>
-          <li><a href="pricing.php">Pricing</a></li>
           <li><a href="contact.php">Contact</a></li>
 
         </ul>

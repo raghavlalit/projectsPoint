@@ -42,7 +42,12 @@ $project = json_decode(base64_decode($_GET['project']), true);
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputText">Project Category</label>
-                    <input type="text" name="project_category" value="<?php echo $project['project_category'];?>" class="form-control" id="exampleInputText" placeholder="Project Category">
+                    <select class="form-control" name="project_category" placeholder="Project Category">
+                      <option>Select Category</option>
+                      <?php foreach ($projects as $key => $project_category) {
+                        ?><option <?php echo $project_category['category']== $project['project_category']? 'selected' :'';?>><?php echo $project_category['category']; ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputText">Project Title</label>
@@ -57,6 +62,16 @@ $project = json_decode(base64_decode($_GET['project']), true);
                     <label for="exampleInputText">Project URL Name</label>
                     <input type="text" name="project_url"  value="<?php echo $project['project_url_name'];?>" class="form-control" id="exampleInputText" placeholder="Project URL Name">
                   </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputText">Project GitHub Link</label>
+                    <input type="text" name="github_link"  value="<?php echo $project['github_link'];?>" class="form-control" id="exampleInputText" placeholder="Project GitHub Link">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText">Project YouTube Demo Link</label>
+                    <input type="text" name="youtube_demo_link"  value="<?php echo $project['youtube_demo_link'];?>" class="form-control" id="exampleInputText" placeholder="Project YouTube Demo Link">
+                  </div>
+
                   <div class="form-group">
                     <label for="exampleInputText">Language Used</label>
                     <input type="text" name="language_used"  value="<?php echo $project['language_used'];?>" class="form-control" id="exampleInputText" placeholder="Language Used">
@@ -71,18 +86,9 @@ $project = json_decode(base64_decode($_GET['project']), true);
                   </div>
                   <div class="form-group">
                     <label for="exampleInputText">Description</label>
-                    <textarea type="text" name="description"  value="<?php echo $project['description'];?>" class="form-control" id="exampleInputText" placeholder="Description"></textarea>
+                    <textarea type="text" name="description" class="form-control" id="exampleInputText" placeholder="Description"><?php echo $project['description'];?></textarea>
                   </div>
 
-                  <div class="form-group">
-                    <label for="exampleInputFile">Upload Project</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" value="<?php echo $project['project_name'];?>" name="project" id="image">
-                        <label class="custom-file-label" for="InputFile">Choose file</label>
-                      </div>
-                    </div>
-                  </div>
                 </div>
                 <!-- /.card-body -->
 

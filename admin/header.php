@@ -67,58 +67,6 @@ $username = isset($_SESSION['projects_point']['name']) ? $_SESSION['projects_poi
         <a href="index.php" class="nav-link">Home</a>
       </li>
     </ul>
-
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-user-circle"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right">
-          <a href="profile.php" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Profile
-                </h3>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Settings
-                </h3>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="logout.php" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Logout
-                </h3>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
-    </ul>
   </nav>
   <!-- /.navbar -->
 
@@ -137,7 +85,7 @@ $username = isset($_SESSION['projects_point']['name']) ? $_SESSION['projects_poi
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo $username;?></a>
+          <a href="profile.php" class="d-block"><?php echo $username;?></a>
         </div>
       </div>
 

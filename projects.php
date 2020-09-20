@@ -32,7 +32,7 @@
         foreach ($projects as $project) {
 
         ?>
-        <div class="col-md-8">
+        <div class="col-md-6">
           <div class="icon-box">
             <i class="icofont-file-php"></i>
             <h4><a href="project.php?id=<?php echo $project['id']; ?>"><?php echo $project['project_title']; ?></a></h4>

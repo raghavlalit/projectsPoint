@@ -153,10 +153,10 @@ $project_count = count($result);
                           <th style="width: 2%">
 
                           </th>
-                          <th style="width: 20%">
+                          <th style="width: 25%">
                               Project Title
                           </th>
-                          <th style="width: 20%">
+                          <th style="width: 15%">
                               Project Category
                           </th>
                           <th style="width: 15%">
@@ -207,7 +207,7 @@ $project_count = count($result);
                                   </i>
                                   Edit
                               </a>
-                              <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete_project" href="#">
+                              <a class="btn btn-danger btn-sm" href="deleteproject.php?delete_project=<?php echo $single_project['id'];?>">
                                   <i class="fas fa-trash">
                                   </i>
                                   Delete
@@ -220,26 +220,6 @@ $project_count = count($result);
               </table>
             </div>
             <!-- /.card-body -->
-            <!-- Modal -->
-            <div class="modal fade" id="delete_project" tabindex="-1" role="dialog" aria-labelledby="delete_projectLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="delete_projectLabel">Delete Project</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <h3>Do you want to delete this project ?</h>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger"><a href="deleteproject.php?delete_project=<?php echo $single_project['id'];?>" class="text-white">Delete</a></button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <!-- /.card -->
 

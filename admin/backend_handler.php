@@ -22,58 +22,40 @@ switch ($type) {
     }
 
     break;
-  case 'upload':
-        $project_category = $_POST['project_category'];
-        $project_title    = $_POST['project_title'];
-        $project_author   = $_POST['project_author'];
-        $project_url      = $_POST['project_url'];
-        $language_used    = $_POST['language_used'];
-        $database_used    = $_POST['database_used'];
-        $frontend         = $_POST['frontend'];
-        $description      = $_POST['description'];
+    case 'add_project':
+      $project_category = $_POST['project_category'];
+      $project_title    = $_POST['project_title'];
+      $project_author   = $_POST['project_author'];
+      $project_url      = $_POST['project_url'];
+      $github_link      = $_POST['github_link'];
+      $youtube_demo_link= $_POST['youtube_demo_link'];
+      $language_used    = $_POST['language_used'];
+      $database_used    = $_POST['database_used'];
+      $frontend         = $_POST['frontend'];
+      $description      = $_POST['description'];
 
-        $file_name =  trim($_FILES['project']['name']);
-        $file_size =  $_FILES['project']['size'];
-        $file_tmp  =  $_FILES['project']['tmp_name'];
-        $file_type =  $_FILES['project']['type'];
+      $query = $conn->prepare("SELECT id FROM projects WHERE project_category = '$project_category' AND project_title = '$project_title'");
+      $query->execute();
+      if($row = $query->fetch(PDO::FETCH_ASSOC)){
+        $message = "Project already exist !!!";
+        header("Location:http://localhost/projects_point/admin/index.php?error=".$message);
 
-        $explode   =  explode('.', $_FILES['project']['name']);
-        $text = end($explode);
-        $file_ext = strtolower($text);
-
-        if ($file_name != ''){
-            $newFileName = time()."_".$file_name;
+      }else{
+        $upload_project = "INSERT INTO projects (project_category,project_title,project_author,github_link,youtube_demo_link,project_url_name,language_used,database_used,frontend,description)
+                          VALUES('$project_category','$project_title','$project_author','$github_link','$youtube_demo_link','$project_url','$language_used','$database_used','$frontend','$description')";
+        $stmt_upload_project = $conn->prepare($upload_project);
+        if($stmt_upload_project->execute()) {
+          $valid = 'true';
+          $message = "project Updated !";
+          header("Location:http://localhost/projects_point/admin/addproject.php?".$valid."&".$message);
         }else{
-            $newFileName = NULL;
+          $valid = 'false';
+          $message = "Couldn't update project !";
+          header("Location:http://localhost/projects_point/admin/addproject.php?".$valid."&".$message);
         }
-        $extensions = array("zip", "rar");
-        if ($file_name != '') {
-            if (in_array($file_ext, $extensions) === false) {
-              $valid = 'false';
-              $message = "Not a valid file extension !";
-              header("Location:http://localhost/projects_point/admin/addproject.php?".$valid."&".$message);
-            }else {
-                if(move_uploaded_file($file_tmp,'uploads/'.$newFileName)) {
-                    $upload_project = "INSERT INTO projects (project_category,project_title,project_author,project_name,project_url_name,language_used,database_used,frontend,description)
-                    VALUES('$project_category','$project_title','$project_author','$newFileName','$project_url','$language_used','$database_used','$frontend','$description')";
-                    $stmt_upload_project = $conn->prepare($upload_project);
-                    if($stmt_upload_project->execute()) {
-                      $valid = 'true';
-                      $message = "project Updated !";
-                      header("Location:http://localhost/projects_point/admin/addproject.php?".$valid."&".$message);
-                    }else{
-                      $valid = 'false';
-                      $message = "Couldn't update project !";
-                      header("Location:http://localhost/projects_point/admin/addproject.php?".$valid."&".$message);
-                    }
-                } else{
-                    $valid = 'false';
-                    $message = "Couldn't upload file !";
-                    header("Location:http://localhost/projects_point/admin/addproject.php?".$valid."&".$message);
-                }
-            }
-        }
-    break;
+      }
+      
+  break;
 
   case 'register':
 
@@ -160,6 +142,8 @@ switch ($type) {
     $project_title    = $_POST['project_title'];
     $project_author   = $_POST['project_author'];
     $project_url      = $_POST['project_url'];
+    $github_link      = $_POST['github_link'];
+    $youtube_demo_link= $_POST['youtube_demo_link'];
     $language_used    = $_POST['language_used'];
     $database_used    = $_POST['database_used'];
     $frontend         = $_POST['frontend'];
@@ -170,17 +154,8 @@ switch ($type) {
     $query = $conn->prepare("SELECT * FROM projects WHERE id = '" . $id. "'");
     $query->execute();
     if($row = $query->fetch(PDO::FETCH_ASSOC)){
-      $project_name = $row['project_name'];
-      $file = $_FILES['project']['name'];
-      if($file!="") {
-        move_uploaded_file($_FILES['project']['tmp_name'],'/uploads/'.$file);
-      } else {
-        $file = $project_name;
-      }
-
-      $update_project = "UPDATE projects SET project_category='$project_category',project_title='$project_title',project_author='$project_author',project_url_name='$project_url',
-                          language_used='$language_used',database_used='$database_used',frontend='$frontend',description='$description',project_name='$file' WHERE id =$id";
-      // echo $update_project  ; die;
+      $update_project = "UPDATE projects SET project_category='$project_category',project_title='$project_title',project_author='$project_author',github_link='$github_link',youtube_demo_link='$youtube_demo_link',
+                          language_used='$language_used',database_used='$database_used',frontend='$frontend',description='$description' WHERE id =$id";
       $stmt_update_project = $conn->prepare($update_project);
       if($stmt_update_project->execute()){
         $message = "Project updated successfully !!!";
@@ -211,7 +186,6 @@ switch ($type) {
       header("Location:http://localhost/projects_point/admin/index.php?error=".$message);
 
     }else{
-
       $insert_user = "INSERT INTO users (name, email, password, user_role) VALUES('$name','$email','$pass', '$user_role')";
       $stmt_insert_user = $conn->prepare($insert_user);
       if($stmt_insert_user->execute()) {
@@ -221,7 +195,6 @@ switch ($type) {
         $message = "Couldn't add user !!!";
         header("Location:http://localhost/projects_point/admin/register.php?error=".$message);
       }
-
     }
     break;
 

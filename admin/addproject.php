@@ -64,6 +64,16 @@ $projects = $query->fetchAll(PDO::FETCH_ASSOC);
                     <label for="exampleInputText">Project URL Name</label>
                     <input type="text" name="project_url" class="form-control" id="exampleInputText" placeholder="Project URL Name">
                   </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputText">Project GitHub Link</label>
+                    <input type="text" name="github_link" class="form-control" id="exampleInputText" placeholder="Project GitHub Link">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText">Project YouTube Demo Link</label>
+                    <input type="text" name="youtube_demo_link" class="form-control" id="exampleInputText" placeholder="Project YouTube Demo Link">
+                  </div>
+
                   <div class="form-group">
                     <label for="exampleInputText">Language Used</label>
                     <input type="text" name="language_used" class="form-control" id="exampleInputText" placeholder="Language Used">
@@ -80,21 +90,11 @@ $projects = $query->fetchAll(PDO::FETCH_ASSOC);
                     <label for="exampleInputText">Description</label>
                     <textarea type="text" name="description" class="form-control" id="exampleInputText" placeholder="Description"></textarea>
                   </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputFile">Upload Project</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="project" id="InputFile">
-                        <label class="custom-file-label" for="InputFile">Choose file</label>
-                      </div>
-                    </div>
-                  </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" name="type" value="upload" class="btn btn-primary">Upload</button>
+                  <button type="submit" name="type" value="add_project" class="btn btn-primary">Upload</button>
                 </div>
               </form>
             </div>
