@@ -38,6 +38,10 @@ $username = isset($_SESSION['projects_point']['name']) ? $_SESSION['projects_poi
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- JQuery -->
+  <script language="JavaScript" type="text/javascript" src="plugins/jquery/jquery.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
   <style media="screen">
     .blue{
       color:blue;
@@ -112,7 +116,7 @@ $username = isset($_SESSION['projects_point']['name']) ? $_SESSION['projects_poi
             </a>
           </li>
           <li class="nav-item">
-            <a href="addproject.php" class="nav-link">
+            <a href="#" data-toggle="modal" data-target="#add_new_project" class="nav-link">
               <i class="nav-icon fas fa-plus-square green"></i>
               <p>
                 Add New Project

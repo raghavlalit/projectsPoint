@@ -39,7 +39,7 @@
               <li><b>Language Used -</b> <?php echo $project['language_used']; ?></li>
               <li><b>Frontend Used -</b> <?php echo $project['frontend']; ?></li>
               <li><b>Database Used -</b> <?php echo $project['database_used']; ?></li>
-              <li><b>Description -</b> <?php echo $project['description']; ?></li>
+              <li><b>Description -</b> <?php echo htmlspecialchars_decode($project['description']); ?></li>
             </ul>
             <div class="btn-wrap">
               <a href="<?php echo $project['github_link']; ?>" class="btn-buy" target="_blank">Download Now</a>

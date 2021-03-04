@@ -25,8 +25,8 @@
 
         <div class="row content">
           <div class="col-lg-6">
-            <h2>Eum ipsam laborum deleniti velitena</h2>
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assum perenda sruen jonee trave</h3>
+            <h2>Welcome to ProjectsPoint</h2>
+            <h3>Our aim is to provide complete project and information of that projects to our clients.</h3>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
@@ -35,9 +35,10 @@
               culpa qui officia deserunt mollit anim id est laborum
             </p>
             <ul>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequa</li>
-              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in</li>
+              <li><i class="ri-check-double-line"></i> All kind of Core PHP projects</li>
+              <li><i class="ri-check-double-line"></i> We also provide projects on CodeIgnitor, Laravel, Yii2 and Python </li>
+              <li><i class="ri-check-double-line"></i> We Provide projects for final year college students</li>
+              <li><i class="ri-check-double-line"></i> You can request for a perticular project.</li>
             </ul>
             <p class="font-italic">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -65,7 +66,7 @@
               <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Lalit Raghav</h4>
-                <span>Chief Executive Officer</span>
+                <span>Founder</span>
                 <p>Explicabo voluptatem mollitia et repellat</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
@@ -84,40 +85,6 @@
                 <h4>Sarah Jhonson</h4>
                 <span>Product Manager</span>
                 <p>Aut maiores voluptates amet et quis</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6 mt-4">
-            <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-                <p>Quisquam facilis cum velit laborum corrupti</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6 mt-4">
-            <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-                <p>Dolorum tempora officiis odit laborum officiis</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
                   <a href=""><i class="ri-facebook-fill"></i></a>

@@ -32,7 +32,7 @@ switch ($type) {
       $language_used    = $_POST['language_used'];
       $database_used    = $_POST['database_used'];
       $frontend         = $_POST['frontend'];
-      $description      = $_POST['description'];
+      $description      = htmlspecialchars($_POST['description']);
 
       $query = $conn->prepare("SELECT id FROM projects WHERE project_category = '$project_category' AND project_title = '$project_title'");
       $query->execute();
@@ -198,6 +198,18 @@ switch ($type) {
     }
     break;
 
+  case 'all_projects':
+    $sql  = "SELECT * FROM projects";
+    $query = $conn->prepare($sql);
+    $query->execute();
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    $project_count = count($result);
+    $data['data'] = [
+      'res'=>$result,
+      'count'=>$project_count
+    ];
+    echo json_encode($data);
+    break;
   default:
     // code...
     break;

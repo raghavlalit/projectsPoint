@@ -58,7 +58,7 @@ $username = isset($_SESSION['projects_point']['name']) ? $_SESSION['projects_poi
         <ul>
           <li class="active"><a href="index.php">Home</a></li>
           <li><a href="about.php">About Us</a></li>
-          <li><a href="services.php">Services</a></li>
+          <li><a href="technologies.php">Technologies</a></li>
           <li><a href="allprojects.php">Projects</a></li>
           <li><a href="contact.php">Contact</a></li>
 

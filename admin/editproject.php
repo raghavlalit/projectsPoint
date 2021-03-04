@@ -1,4 +1,5 @@
 <?php
+// include('con_pdo.php');
 include('header.php');
 $projects_category = "SELECT * FROM project_categories";
 $query = $conn->prepare($projects_category);
@@ -6,7 +7,6 @@ $query->execute();
 $projects = $query->fetchAll(PDO::FETCH_ASSOC);
 
 $project = json_decode(base64_decode($_GET['project']), true);
-
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -86,7 +86,7 @@ $project = json_decode(base64_decode($_GET['project']), true);
                   </div>
                   <div class="form-group">
                     <label for="exampleInputText">Description</label>
-                    <textarea type="text" name="description" class="form-control" id="exampleInputText" placeholder="Description"><?php echo $project['description'];?></textarea>
+                    <textarea type="text" name="description" class="form-control" id="exampleInputText" placeholder="Description"><?php echo htmlspecialchars_decode($project['description']);?></textarea>
                   </div>
 
                 </div>
